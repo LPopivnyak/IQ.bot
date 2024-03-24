@@ -21,15 +21,19 @@ def openWindow():
     nextQuestButton = QPushButton("Наступне питання")
 
     mainLine.addWidget(question1)
-    mainLine.addWidget(answer1)
-    mainLine.addWidget(answer2)
-    mainLine.addWidget(answer3)
-    mainLine.addWidget(answer4)
+    mainLine.addWidget(answersGroup1)
+
+    mainLine.addWidget(answerButton)
+    answersLine1.addWidget(answer1)
+    answersLine1.addWidget(answer2)
+    answersLine1.addWidget(answer3)
+    answersLine1.addWidget(answer4)
+    answersGroup1.setLayout(answersLine1)
 
     answersLine1.addWidget(result)
     result.hide()
-    answersGroup1.setLayout(answersLine1)
-    mainLine.addWidget(answersGroup1)
+
+    mainLine.addWidget(nextQuestButton)
 
     def showQuest():
         random.shuffle(answers)
@@ -52,6 +56,7 @@ def openWindow():
 
         if answers[2].isChecked():
             result.setText("Правильно")
+            QuestCode.score += 10
         else:
             result.setText("Неправильно")
 
