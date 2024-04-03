@@ -7,9 +7,9 @@ def openWindow():
 
     mainLine = QVBoxLayout()
 
-    question1 = QLabel("На літаку було 500 цеглинок, одна цеглинка випала з літака. Скільки цеглинок лишилось?")
-    answersGroup1 = QGroupBox("Варіанти відповідей:")
-    answersLine1 = QVBoxLayout()
+    question = QLabel("На літаку було 500 цеглинок, одна цеглинка випала з літака. Скільки цеглинок лишилось?")
+    answersGroup = QGroupBox("Варіанти відповідей:")
+    answersLine = QVBoxLayout()
     answer1 = QRadioButton("512")
     answer2 = QRadioButton("501")
     answer3 = QRadioButton("499")
@@ -20,24 +20,24 @@ def openWindow():
     answerButton = QPushButton("Відповісти")
     nextQuestButton = QPushButton("Наступне питання")
 
-    mainLine.addWidget(question1)
-    mainLine.addWidget(answersGroup1)
+    mainLine.addWidget(question)
+    mainLine.addWidget(answersGroup)
 
     mainLine.addWidget(answerButton)
-    answersLine1.addWidget(answer1)
-    answersLine1.addWidget(answer2)
-    answersLine1.addWidget(answer3)
-    answersLine1.addWidget(answer4)
-    answersGroup1.setLayout(answersLine1)
+    answersLine.addWidget(answer1)
+    answersLine.addWidget(answer2)
+    answersLine.addWidget(answer3)
+    answersLine.addWidget(answer4)
+    answersGroup.setLayout(answersLine)
 
-    answersLine1.addWidget(result)
+    answersLine.addWidget(result)
     result.hide()
 
     mainLine.addWidget(nextQuestButton)
 
     def showQuest():
         random.shuffle(answers)
-        question1.setText(QuestCode.quest[QuestCode.currentQuest]["Питання"])
+        question.setText(QuestCode.quest[QuestCode.currentQuest]["Питання"])
         answers[0].setText(QuestCode.quest[QuestCode.currentQuest]["Неправильна відповідь1"])
         answers[1].setText(QuestCode.quest[QuestCode.currentQuest]["Неправильна відповідь2"])
         answers[2].setText(QuestCode.quest[QuestCode.currentQuest]["Правильна відповідь"])
