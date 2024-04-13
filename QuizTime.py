@@ -1,6 +1,8 @@
 from PyQt6.QtWidgets import *
 import random
 import QuestCode
+import ResultWindow
+
 
 def openWindow():
     window = QDialog()
@@ -61,6 +63,10 @@ def openWindow():
             result.setText("Неправильно")
 
     def nextQuestionFunc():
+        if QuestCode.currentQuest >= len(QuestCode.quest):
+            window.hide()
+            ResultWindow.openWindow()
+
         answers[0].show()
         answers[1].show()
         answers[2].show()
@@ -70,6 +76,8 @@ def openWindow():
         nextQuestButton.hide()
         showQuest()
         QuestCode.currentQuest += 1
+
+
 
     nextQuestionFunc()
 
