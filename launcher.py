@@ -1,4 +1,3 @@
-import PyQt6
 from PyQt6.QtWidgets import *
 import QuizTime
 

@@ -2,12 +2,17 @@ from PyQt6.QtWidgets import *
 import random
 import QuestCode
 import ResultWindow
+import pygame
 
 
 def openWindow():
     window = QDialog()
 
     mainLine = QVBoxLayout()
+
+    pygame.mixer.init()
+    pygame.mixer.music.load("100727_Fire_Aura.mp3")
+    pygame.mixer.music.play(-1)
 
     question = QLabel("На літаку було 500 цеглинок, одна цеглинка випала з літака. Скільки цеглинок лишилось?")
     answersGroup = QGroupBox("Варіанти відповідей:")
